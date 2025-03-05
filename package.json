@@ -1,0 +1,20 @@
+{
+  "name": "gemini-testing",
+  "version": "1.0.0",
+  "description": "",
+  "type": "module",
+  "main": "main.js",
+  "scripts": {
+    "start": "node main.js",
+    "dev": "node --watch main.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@google/generative-ai": "^0.23.0",
+    "dotenv": "^16.4.7",
+    "express": "^4.21.2"
+  }
+}
