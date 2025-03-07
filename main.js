@@ -15,4 +15,13 @@ app.get("/", async (req, res) => {
   });
 });
 
+app.post("/", async (req, res) => {
+  const prompt = req.body;
+  const result = await model.generateContent(prompt);
+
+  res.json({
+    response: result.response.text(),
+  });
+});
+
 app.listen(port, () => console.log(`App running on port ${port}`));
