@@ -1,10 +1,14 @@
 import express from "express";
 import { GoogleGenerativeAI } from "@google/generative-ai";
+import cors from "cors";
 import "dotenv/config";
 const app = express();
 const genAI = new GoogleGenerativeAI(process.env.API_KEY);
 const model = genAI.getGenerativeModel({ model: "gemini-1.5-flash" });
 const port = 5050;
+
+app.use(cors());
+app.use(express.json());
 
 app.get("/", async (req, res) => {
   const prompt = req.query.prompt;
@@ -15,8 +19,8 @@ app.get("/", async (req, res) => {
   });
 });
 
-app.post("/", async (req, res) => {
-  const prompt = req.body;
+app.post("/prompt", async (req, res) => {
+  const prompt = req.body.message;
   const result = await model.generateContent(prompt);
 
   res.json({
