@@ -11,12 +11,8 @@ app.use(cors());
 app.use(express.json());
 
 app.get("/", async (req, res) => {
-  const prompt = req.query.prompt;
-  const result = await model.generateContent(prompt);
-
-  res.json({
-    response: result.response.text(),
-  });
+ 
+  res.send("<h1>Welcome</h1>")
 });
 
 app.post("/prompt", async (req, res) => {
